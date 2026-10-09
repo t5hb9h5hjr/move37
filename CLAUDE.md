@@ -4,16 +4,23 @@ Guidance for Claude Code when working in this repository.
 
 ## Project
 
-`move37` — the repository is currently empty (no source, build config, or tests yet).
-Update this file as the project takes shape.
+`move37` — a minimal Django app. `/` serves a greeting (default "Hello, human"); the greeting is editable in the Django admin at `/admin/`.
 
 ## Commands
 
-_None defined yet._ Document build, test, lint, and run commands here once they exist.
+```
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py createsuperuser   # for /admin/
+python manage.py runserver
+python manage.py test
+```
 
 ## Architecture
 
-_To be filled in once code is added._ Describe the main modules, data flow, and key design decisions.
+- `config/` — Django project (settings, root URLs).
+- `hello/` — app with a `Greeting` model (registered in admin) and an `index` view that returns the latest active greeting, falling back to "Hello, human".
+- SQLite database (`db.sqlite3`, gitignored).
 
 ## Conventions
 
