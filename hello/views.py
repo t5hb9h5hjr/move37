@@ -5,8 +5,13 @@ from .models import Greeting
 
 
 def index(request):
-    greeting = Greeting.objects.filter(active=True).order_by("-pk").first()
+    message = (
+        Greeting.objects.filter(active=True)
+        .order_by("-pk")
+        .values_list("message", flat=True)
+        .first()
+    )
     return HttpResponse(
-        greeting.message if greeting else DEFAULT_GREETING,
+        message if message is not None else DEFAULT_GREETING,
         content_type="text/plain; charset=utf-8",
     )
