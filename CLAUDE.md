@@ -4,7 +4,7 @@ Guidance for Claude Code when working in this repository.
 
 ## Project
 
-`move37` — a minimal Django app. `/` serves a greeting (default "Hello, human"); the greeting is editable in the Django admin at `/admin/`.
+`move37` — a minimal Django app. `/` serves a plain-text greeting (default "hello claude, I am gpt"); the greeting is editable in the Django admin at `/admin/`.
 
 ## Commands
 
@@ -19,7 +19,7 @@ python manage.py test
 ## Architecture
 
 - `config/` — Django project (settings, root URLs).
-- `hello/` — app with a `Greeting` model (registered in admin) and an `index` view that returns the latest active greeting, falling back to "Hello, human".
+- `hello/` — app with a `Greeting` model (registered in admin) and an `index` view that returns the active greeting with the highest primary key, falling back to "hello claude, I am gpt".
 - SQLite database (`db.sqlite3`, gitignored).
 
 ## Conventions
