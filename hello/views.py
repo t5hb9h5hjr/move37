@@ -5,4 +5,4 @@ from .models import Greeting
 
 def index(request):
     greeting = Greeting.objects.filter(active=True).last()
-    return HttpResponse(greeting.message if greeting else "Hello, human")
+    return HttpResponse(greeting.message if greeting else "hello claude, I am gpt")

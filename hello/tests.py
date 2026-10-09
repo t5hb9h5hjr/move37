@@ -5,7 +5,7 @@ from .models import Greeting
 
 class HelloTests(TestCase):
     def test_default(self):
-        self.assertContains(self.client.get("/"), "Hello, human")
+        self.assertContains(self.client.get("/"), "hello claude, I am gpt")
 
     def test_admin_managed_greeting(self):
         Greeting.objects.create(message="Hi there")
